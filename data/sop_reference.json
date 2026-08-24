@@ -1,0 +1,49 @@
+{
+  "process_name": "Cortonis Pharma Deviation and CAPA Process",
+  "sop_reference": "SOP-QA-012, Version 3.0",
+  "flow": [
+    "Deviation Opened",
+    "Initial Assessment",
+    "Investigation Assigned",
+    "Root Cause Analysis",
+    "CAPA Proposed",
+    "CAPA Approved",
+    "CAPA Implemented",
+    "Effectiveness Check",
+    "Closed"
+  ],
+  "transitions": [
+    {
+      "from": "Deviation Opened",
+      "to": "Initial Assessment"
+    },
+    {
+      "from": "Initial Assessment",
+      "to": "Investigation Assigned"
+    },
+    {
+      "from": "Investigation Assigned",
+      "to": "Root Cause Analysis"
+    },
+    {
+      "from": "Root Cause Analysis",
+      "to": "CAPA Proposed"
+    },
+    {
+      "from": "CAPA Proposed",
+      "to": "CAPA Approved"
+    },
+    {
+      "from": "CAPA Approved",
+      "to": "CAPA Implemented"
+    },
+    {
+      "from": "CAPA Implemented",
+      "to": "Effectiveness Check"
+    },
+    {
+      "from": "Effectiveness Check",
+      "to": "Closed"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+docs/generate_sop.py
+docs/cortonis-process-mining-SPEC.md
+__pycache__/
+*.pyc
+docs/cortonis-pharma-icon.png
+docs/cortonis-pharma-logo.png
