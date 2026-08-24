@@ -9,7 +9,7 @@
 - [x] Phase 1 — data generator
 - [x] Phase 2 — analytical layer (`src/`)
 - [x] Phase 3 — exploration notebook
-- [ ] Phase 4 — Streamlit app
+- [x] Phase 4 — Streamlit app
 - [ ] Phase 5 — deployment
 
 Still a work in progress, but the data + analysis side is done and the finding below is stable.
@@ -90,7 +90,7 @@ Rework, escalation and reopening aren't in this flow on purpose — the SOP itse
 ├── docs/
 │   ├── SOP-QA-012_Deviation-and-CAPA-Management.docx
 │   └── cortonis-process-mining-SPEC.md
-├── app/                          # Streamlit app, work in progress
+├── app/                          # Streamlit app (`streamlit run app/streamlit_app.py`)
 └── LICENSE                       # AGPL-3.0
 ```
 
@@ -100,7 +100,8 @@ Rework, escalation and reopening aren't in this flow on purpose — the SOP itse
 git clone <this repo>
 cd cortonis-process-mining
 pip install -r requirements.txt
-jupyter notebook notebooks/01_exploration.ipynb
+streamlit run app/streamlit_app.py       # the app
+jupyter notebook notebooks/01_exploration.ipynb   # or the notebook
 ```
 
 You'll also need the Graphviz system package installed for the process map to render (`packages.txt` handles this automatically on Streamlit Community Cloud, but locally you need it yourself, e.g. `apt install graphviz` / `pacman -S graphviz` / `brew install graphviz`).
