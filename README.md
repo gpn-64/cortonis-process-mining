@@ -4,17 +4,7 @@
 
 > *Lyon's average step duration is in line with the network. Its CAPA cycle time is 40% longer. Standard reporting cannot explain the gap — process mining can.*
 
-**All data in this repo is synthetic.** No real company data is used anywhere. Cortonis Pharma is a made-up pharma company I use across a few of my portfolio projects — any resemblance to a real company is coincidental.
-
-## Status
-
-- [x] Phase 1 — data generator
-- [x] Phase 2 — analytical layer (`src/`)
-- [x] Phase 3 — exploration notebook
-- [x] Phase 4 — Streamlit app
-- [x] Phase 5 — deployed to Streamlit Community Cloud
-
-Done. Data + analysis + app are all in place and the finding below is stable.
+**All data in this repo is synthetic.** No real company data is used anywhere. Cortonis Pharma is a made-up pharma company I use across a few of my portfolio projects — any resemblance to a real company is coincidental
 
 <p align="center">
   <img src="notebooks/images/app_dashboard.png" width="800" alt="The deployed Streamlit dashboard, process map tab, showing the Lyon finding banner">
