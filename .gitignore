@@ -1,5 +1,6 @@
 docs/generate_sop.py
 docs/cortonis-process-mining-SPEC.md
+data/generate_event_log.py
 __pycache__/
 *.pyc
 .preview/
