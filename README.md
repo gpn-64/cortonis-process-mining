@@ -42,7 +42,23 @@ Walked through in [`notebooks/01_exploration.ipynb`](notebooks/01_exploration.ip
 
 So Lyon isn't slower step by step, it just loops back into rework a lot more often, and that's where the extra ~40% of cycle time comes from. I checked this a few different ways (discovery, conformance checking, plain KPIs, and organizational mining) and Lyon shows up as the outlier every time, even though none of those modules know Lyon is "the" site to look for.
 
+<p align="center">
+  <img src="notebooks/images/cycle_time_by_site.png" width="480" alt="Total CAPA cycle time by site, Lyon highest"><br>
+  <img src="notebooks/images/process_map_dfg.png" width="800" alt="Frequency DFG of the full network, discovered with PM4Py">
+</p>
+
+The process map above is discovered straight from the event log with PM4Py's inductive miner — the rework loop back into `Root Cause Analysis` is right there in the graph. Running conformance checking against the SOP turns that into a number:
+
+<p align="center">
+  <img src="notebooks/images/conformance_rate_by_site.png" width="480" alt="Conformance rate by site, Lyon lowest"><br>
+  <img src="notebooks/images/rework_and_breach.png" width="800" alt="Isolated rework time and regulatory deadline breach rate by site">
+</p>
+
 There's also a second, smaller thing in the data: Barcelona has a much longer wait before `Investigation Assigned` starts (a staffing/queue issue, not a rework issue). It's unrelated to the Lyon finding, which was mostly a sanity check that I wasn't just seeing what I wanted to see in the data.
+
+<p align="center">
+  <img src="notebooks/images/barcelona_waiting_time.png" width="480" alt="Median waiting time before Investigation Assigned, Barcelona highest">
+</p>
 
 ## Reference SOP
 
@@ -69,7 +85,8 @@ Rework, escalation and reopening aren't in this flow on purpose — the SOP itse
 │   ├── kpi.py                   # cycle time, rework time, deadline breach
 │   └── organizational.py        # handoffs, workload, waiting time by role
 ├── notebooks/
-│   └── 01_exploration.ipynb     # the analysis this README is summarizing
+│   ├── 01_exploration.ipynb     # the analysis this README is summarizing
+│   └── images/                  # charts exported from the notebook, used above
 ├── docs/
 │   ├── SOP-QA-012_Deviation-and-CAPA-Management.docx
 │   └── cortonis-process-mining-SPEC.md
