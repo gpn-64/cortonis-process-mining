@@ -4,13 +4,13 @@ from pathlib import Path
 
 import streamlit as st
 
-LOGO_PATH = Path(__file__).resolve().parent.parent.parent / "docs" / "cortonis-pharma-icon.png"
+LOGO_PATH = Path(__file__).resolve().parent.parent.parent / "docs" / "cortonis-pharma-logo.png"
 
 
 def render_sidebar_filters(df):
     """Draws the sidebar widgets and returns the picked values as a dict."""
     if LOGO_PATH.exists():
-        st.sidebar.image(str(LOGO_PATH), width=56)
+        st.sidebar.image(str(LOGO_PATH), width=220)
     st.sidebar.header("Filters")
 
     sites = st.sidebar.multiselect(

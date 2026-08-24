@@ -16,8 +16,6 @@ from app.components import filters, process_map, conformance_view, bottlenecks_v
 
 st.set_page_config(page_title="Cortonis Pharma - Deviation & CAPA Process Mining", layout="wide")
 
-LOGO_PATH = Path(__file__).resolve().parent.parent / "docs" / "cortonis-pharma-logo.png"
-
 
 @st.cache_data
 def get_event_log():
@@ -36,11 +34,7 @@ def get_dfg(filtered_df, mode, path_percentage):
 
 
 def main():
-    col_logo, col_title = st.columns([1, 5], vertical_alignment="center")
-    with col_logo:
-        st.image(str(LOGO_PATH), width=220)
-    with col_title:
-        st.title("Deviation & CAPA Process Mining")
+    st.title("Cortonis Pharma — Deviation & CAPA Process Mining")
     st.caption(
         "Synthetic data. See the README for the full write-up, or "
         "`notebooks/01_exploration.ipynb` for the narrated analysis."
