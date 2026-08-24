@@ -30,19 +30,52 @@ def _lyon_vs_network_stats(df):
     return step_delta_pct, cycle_delta_pct, rework_ratio
 
 
+def _stat_block(value, label):
+    return f"""
+        <div style="text-align:center;min-width:76px;">
+            <div style="font-size:19px;font-weight:700;font-family:'Courier New',monospace;">{value}</div>
+            <div style="font-size:10px;opacity:.78;margin-top:5px;line-height:1.3;">{label}</div>
+        </div>
+    """
+
+
 def render(df):
     step_delta_pct, cycle_delta_pct, rework_ratio = _lyon_vs_network_stats(df)
 
-    with st.container(border=True):
-        col_text, col1, col2, col3 = st.columns([3, 1, 1, 1])
-        with col_text:
-            st.caption("THE FINDING")
-            st.markdown(
-                f"Lyon's average step duration is **in line with the network** "
-                f"({step_delta_pct:+.0f}%). Its CAPA cycle time is "
-                f"**{cycle_delta_pct:+.0f}% longer**. Standard reporting can't explain "
-                "the gap -- process mining can."
-            )
-        col1.metric("step duration delta", f"{step_delta_pct:+.0f}%")
-        col2.metric("cycle time vs. network", f"{cycle_delta_pct:+.0f}%")
-        col3.metric("rework rate vs. network", f"{rework_ratio:.1f}×")
+    divider = '<div style="width:1px;align-self:stretch;background:rgba(255,255,255,.25);"></div>'
+    stats = "".join([
+        _stat_block(f"{step_delta_pct:+.0f}%", "step duration<br>delta"),
+        divider,
+        _stat_block(f"{cycle_delta_pct:+.0f}%", "cycle time<br>vs. network"),
+        divider,
+        _stat_block(f"{rework_ratio:.1f}×", "rework rate<br>vs. network"),
+    ])
+
+    st.markdown(
+        f"""
+        <div style="
+            background: linear-gradient(120deg, #0B5D3B 0%, #0F7A4C 100%);
+            border-radius: 14px;
+            padding: 24px 30px;
+            color: #fff;
+            margin-bottom: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 36px;
+        ">
+            <div>
+                <div style="font-size:10.5px;font-weight:700;letter-spacing:.1em;
+                    text-transform:uppercase;opacity:.72;margin-bottom:9px;">The finding</div>
+                <p style="font-size:16px;font-weight:500;line-height:1.5;margin:0;max-width:640px;color:#fff;">
+                    Lyon's average step duration is <b>in line with the network</b>
+                    ({step_delta_pct:+.0f}%). Its CAPA cycle time is
+                    <b>{cycle_delta_pct:+.0f}% longer</b>. Standard reporting can't
+                    explain the gap -- process mining can.
+                </p>
+            </div>
+            <div style="display:flex;gap:26px;flex:none;">{stats}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
