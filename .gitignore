@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 docs/cortonis-pharma-icon.png
 docs/cortonis-pharma-logo.png
+.preview/
