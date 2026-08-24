@@ -1,0 +1,6 @@
+streamlit==1.62.0
+pm4py==2.7.23.6
+pandas==3.0.5
+numpy==2.5.1
+plotly==6.9.0
+graphviz==0.21

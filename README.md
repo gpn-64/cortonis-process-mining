@@ -99,9 +99,11 @@ Rework, escalation and reopening aren't in this flow on purpose — the SOP itse
 ```bash
 git clone <this repo>
 cd cortonis-process-mining
-pip install -r requirements.txt   # not committed yet, coming with the app
+pip install -r requirements.txt
 jupyter notebook notebooks/01_exploration.ipynb
 ```
+
+You'll also need the Graphviz system package installed for the process map to render (`packages.txt` handles this automatically on Streamlit Community Cloud, but locally you need it yourself, e.g. `apt install graphviz` / `pacman -S graphviz` / `brew install graphviz`).
 
 The CSV is already generated and committed, so you don't need to run anything to open the notebook. If you want to regenerate it (e.g. after tweaking a parameter):
 
